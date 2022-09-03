@@ -55,21 +55,38 @@ public class Main {
         return  newEmp;
     }
 
-    public  void showPermanentEmployeeList() {
+    public  void showPermanentEmployeeBonusList() {
         for (PermanentEmp permanentEmp : permanentEmpList) {
-            System.out.println("Employee ID: " + permanentEmp.getId() + " " + "Employee Name : "+ permanentEmp.getName() + " " +"Employee Bonus : " + permanentEmp.getBonus() +" " + "Employee is eligible for Provident Fund :" + permanentEmp.isEligibleForProvidentfund());
+            System.out.println("Employee ID: " + permanentEmp.getId() + " " + "Employee Name : "+ permanentEmp.getName() + " " +"Employee Bonus : " + permanentEmp.getBonus());
         }
     }
-    public  void showContractualEmployeeList() {
+    public  void showPermanentEmployeeFundList() {
+        for (PermanentEmp permanentEmp : permanentEmpList) {
+            System.out.println("Employee ID: " + permanentEmp.getId() + " " + "Employee Name : "+ permanentEmp.getName() + " " + "Employee is eligible for Provident Fund :" + permanentEmp.isEligibleForProvidentfund());
+        }
+    }
+    public  void showContractualEmployeeBonusList() {
         for (ContractualEmp contractualEmp : contractualEmpList) {
-            System.out.println("Employee ID: "+ contractualEmp.getId() + " "  + "Employee Name : "+ contractualEmp.getName() + " " + "Employee Bonus: "+ contractualEmp.getBonus() +" "+ "Employee is eligible for Provident Fund :"+ contractualEmp.isEligibleForProvidentfund());
+            System.out.println("Employee ID: "+ contractualEmp.getId() + " "  + "Employee Name : "+ contractualEmp.getName() + " " + "Employee Bonus: "+ contractualEmp.getBonus());
         }
     }
-    public  void showTemporaryEmployeeList() {
+    public  void showContractualEmployeeFundList() {
+        for (ContractualEmp contractualEmp : contractualEmpList) {
+            System.out.println("Employee ID: "+ contractualEmp.getId() + " "  + "Employee Name : "+ contractualEmp.getName() + " " + "Employee is eligible for Provident Fund :"+ contractualEmp.isEligibleForProvidentfund());
+        }
+    }
+
+    public  void showTemporaryEmployeeBonusList() {
         for (TemporaryEmp temporaryEmp : temporaryEmpList) {
-            System.out.println("Employee ID: " + temporaryEmp.getId() + " "  + "Employee Name : "+ temporaryEmp.getName() + " " +"Employee Bonus : " + temporaryEmp.getBonus() +" "+ "Employee is eligible for Provident Fund :"+temporaryEmp.isEligibleForProvidentfund());
+            System.out.println("Employee ID: " + temporaryEmp.getId() + " "  + "Employee Name : "+ temporaryEmp.getName() + " " +"Employee Bonus : " + temporaryEmp.getBonus());
         }
     }
+    public  void showTemporaryEmployeeFundList() {
+        for (TemporaryEmp temporaryEmp : temporaryEmpList) {
+            System.out.println("Employee ID: " + temporaryEmp.getId() + " "  + "Employee Name : "+ temporaryEmp.getName() + " " + "Employee is eligible for Provident Fund :"+temporaryEmp.isEligibleForProvidentfund());
+        }
+    }
+
 
     public static void main(String[] args) {
         Main main = new Main();
@@ -90,8 +107,6 @@ public class Main {
                 inputPermanentEmployeeNumbers-=1;
                 permanentEmpCount += 1;
             }
-
-//            main.showPermanentEmployeeList();
         }
         if(inputTemporaryEmployeeNumbers > 0){
             while (inputTemporaryEmployeeNumbers > 0){
@@ -112,14 +127,28 @@ public class Main {
 
         }
         if(permanentEmpCount > 0 ){
-            main.showPermanentEmployeeList();
+            main.showPermanentEmployeeBonusList();
         }
         if(temporaryEmpCount > 0 ){
-            main.showTemporaryEmployeeList();
+            main.showTemporaryEmployeeBonusList();
+
         }
         if(contractualEmpCount > 0){
-            main.showContractualEmployeeList();
+            main.showContractualEmployeeBonusList();
         }
+
+
+        if(permanentEmpCount > 0 ){
+            main.showPermanentEmployeeFundList();
+        }
+        if(temporaryEmpCount > 0 ){
+            main.showTemporaryEmployeeFundList();
+        }
+        if(contractualEmpCount > 0){
+            main.showContractualEmployeeFundList();
+        }
+
+
     }
 
 }
