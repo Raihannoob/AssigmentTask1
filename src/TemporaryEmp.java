@@ -1,5 +1,4 @@
 public class TemporaryEmp extends Employee implements facility{
-    Employee TempEmp = new Employee();
     public TemporaryEmp(int id, String name, int salary) {
         this.id = id;
         this.name = name;

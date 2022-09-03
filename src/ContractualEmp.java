@@ -1,5 +1,4 @@
 public class ContractualEmp extends Employee implements facility{
-    Employee conEmp = new Employee();
     public ContractualEmp(int id, String name, int salary) {
         this.id = id;
         this.name = name;

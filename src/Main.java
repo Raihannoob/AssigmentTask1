@@ -3,40 +3,22 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-    public List<Employee> employeeList = new ArrayList<>();
+
     public List<PermanentEmp> permanentEmpList = new ArrayList<>();
     public  List<ContractualEmp> contractualEmpList = new ArrayList<>();
     public  List<TemporaryEmp> temporaryEmpList = new ArrayList<>();
 
-    public  void  addEmployee(Employee employee){
-        employeeList.add(employee);
-    }
     public  void addPermanentEmp(PermanentEmp permanentEmp){
         permanentEmpList.add(permanentEmp);
     }
     public  void addTemporaryEmp(TemporaryEmp temporaryEmp){
         temporaryEmpList.add(temporaryEmp);
     }
-
     public  void addContractualEmp(ContractualEmp contractualEmp){
         contractualEmpList.add(contractualEmp);
     }
 
 
-
-    public  Employee takeEmployeeInput(){
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Enter Employee ID");
-        int id = scan.nextInt();
-        scan.nextLine();
-        System.out.println("Enter Employee Name");
-        String name = scan.nextLine();
-
-        System.out.println("Enter Employee Salary");
-        int salary = scan.nextInt();
-        Employee newEmployee = new Employee(id,name,salary);
-        return  newEmployee;
-    }
     public PermanentEmp takePermanentEmployeeInput(){
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter Employee ID");
@@ -76,25 +58,19 @@ public class Main {
         return  newEmp;
     }
 
-    public  void showEmployeeList() {
-        for (Employee employee : employeeList) {
-            System.out.println(employee.getId() + " " + employee.getName() + " " + employee.getSalary());
-        }
-    }
     public  void showPermanentEmployeeList() {
         for (PermanentEmp permanentEmp : permanentEmpList) {
-            System.out.println(permanentEmp.getId() + " " + permanentEmp.getName() + " " + permanentEmp.getSalary() +" " + permanentEmp.getBonus() +" "+ permanentEmp.isEligibleForProvidentfund());
+            System.out.println("Employee ID: " + permanentEmp.getId() + " " + "Employee Name : "+ permanentEmp.getName() + " " +"Employee Bonus : " + permanentEmp.getBonus() +" " + "Employee is eligible for Provient Fund :" + permanentEmp.isEligibleForProvidentfund());
         }
     }
     public  void showContractualEmployeeList() {
         for (ContractualEmp contractualEmp : contractualEmpList) {
-            System.out.println(contractualEmp.getId() + " " + contractualEmp.getName() + " " + contractualEmp.getSalary() +" " + contractualEmp.getBonus() +" "+ contractualEmp.isEligibleForProvidentfund());
+            System.out.println("Employee ID: "+ contractualEmp.getId() + " "  + "Employee Name : "+ contractualEmp.getName() + " " + "Employee Bonus: "+ contractualEmp.getBonus() +" "+ "Employee is eligible for Provient Fund :"+ contractualEmp.isEligibleForProvidentfund());
         }
     }
-
     public  void showTemporaryEmployeeList() {
         for (TemporaryEmp temporaryEmp : temporaryEmpList) {
-            System.out.println(temporaryEmp.getId() + " " + temporaryEmp.getName() + " " + temporaryEmp.getSalary() +" " + temporaryEmp.getBonus() +" "+ temporaryEmp.isEligibleForProvidentfund());
+            System.out.println("Employee ID: " + temporaryEmp.getId() + " "  + "Employee Name : "+ temporaryEmp.getName() + " " +"Employee Bonus : " + temporaryEmp.getBonus() +" "+ "Employee is eligible for Provient Fund :"+temporaryEmp.isEligibleForProvidentfund());
         }
     }
 
@@ -112,6 +88,7 @@ public class Main {
         main.showPermanentEmployeeList();
         main.showContractualEmployeeList();
         main.showTemporaryEmployeeList();
+
     }
 
 }
