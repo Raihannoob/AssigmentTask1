@@ -7,7 +7,6 @@ public class Main {
     public List<PermanentEmp> permanentEmpList = new ArrayList<>();
     public  List<ContractualEmp> contractualEmpList = new ArrayList<>();
     public  List<TemporaryEmp> temporaryEmpList = new ArrayList<>();
-
     public  void addPermanentEmp(PermanentEmp permanentEmp){
         permanentEmpList.add(permanentEmp);
     }
@@ -17,8 +16,6 @@ public class Main {
     public  void addContractualEmp(ContractualEmp contractualEmp){
         contractualEmpList.add(contractualEmp);
     }
-
-
     public PermanentEmp takePermanentEmployeeInput(){
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter Employee ID");
@@ -60,35 +57,69 @@ public class Main {
 
     public  void showPermanentEmployeeList() {
         for (PermanentEmp permanentEmp : permanentEmpList) {
-            System.out.println("Employee ID: " + permanentEmp.getId() + " " + "Employee Name : "+ permanentEmp.getName() + " " +"Employee Bonus : " + permanentEmp.getBonus() +" " + "Employee is eligible for Provient Fund :" + permanentEmp.isEligibleForProvidentfund());
+            System.out.println("Employee ID: " + permanentEmp.getId() + " " + "Employee Name : "+ permanentEmp.getName() + " " +"Employee Bonus : " + permanentEmp.getBonus() +" " + "Employee is eligible for Provident Fund :" + permanentEmp.isEligibleForProvidentfund());
         }
     }
     public  void showContractualEmployeeList() {
         for (ContractualEmp contractualEmp : contractualEmpList) {
-            System.out.println("Employee ID: "+ contractualEmp.getId() + " "  + "Employee Name : "+ contractualEmp.getName() + " " + "Employee Bonus: "+ contractualEmp.getBonus() +" "+ "Employee is eligible for Provient Fund :"+ contractualEmp.isEligibleForProvidentfund());
+            System.out.println("Employee ID: "+ contractualEmp.getId() + " "  + "Employee Name : "+ contractualEmp.getName() + " " + "Employee Bonus: "+ contractualEmp.getBonus() +" "+ "Employee is eligible for Provident Fund :"+ contractualEmp.isEligibleForProvidentfund());
         }
     }
     public  void showTemporaryEmployeeList() {
         for (TemporaryEmp temporaryEmp : temporaryEmpList) {
-            System.out.println("Employee ID: " + temporaryEmp.getId() + " "  + "Employee Name : "+ temporaryEmp.getName() + " " +"Employee Bonus : " + temporaryEmp.getBonus() +" "+ "Employee is eligible for Provient Fund :"+temporaryEmp.isEligibleForProvidentfund());
+            System.out.println("Employee ID: " + temporaryEmp.getId() + " "  + "Employee Name : "+ temporaryEmp.getName() + " " +"Employee Bonus : " + temporaryEmp.getBonus() +" "+ "Employee is eligible for Provident Fund :"+temporaryEmp.isEligibleForProvidentfund());
         }
     }
 
     public static void main(String[] args) {
         Main main = new Main();
-        PermanentEmp permanentEmp1 = main.takePermanentEmployeeInput();
-        main.addPermanentEmp(permanentEmp1);
+        Scanner scan = new Scanner(System.in);
+        System.out.println("How Many Permanent Employees You want to Insert :");
+        int inputPermanentEmployeeNumbers = scan.nextInt();
+        System.out.println("How Many Temporary Employees You want to Insert :");
+        int inputTemporaryEmployeeNumbers = scan.nextInt();
+        System.out.println("How Many Contractual Employees You want to Insert :");
+        int inputContractualEmployeeNumbers = scan.nextInt();
+        int permanentEmpCount = 0;
+        int temporaryEmpCount = 0;
+        int contractualEmpCount = 0;
+        if(inputPermanentEmployeeNumbers > 0) {
+            while (inputPermanentEmployeeNumbers>0){
+                PermanentEmp permanentEmp1 = main.takePermanentEmployeeInput();
+                main.addPermanentEmp(permanentEmp1);
+                inputPermanentEmployeeNumbers-=1;
+                permanentEmpCount += 1;
+            }
 
-        ContractualEmp contractualEmp1 = main.takeContractualEmployeeInput();
-        main.addContractualEmp(contractualEmp1);
+//            main.showPermanentEmployeeList();
+        }
+        if(inputTemporaryEmployeeNumbers > 0){
+            while (inputTemporaryEmployeeNumbers > 0){
+                TemporaryEmp temporaryEmp1 = main.takeTemporaryEmployeeInput();
+                main.addTemporaryEmp(temporaryEmp1);
+                inputTemporaryEmployeeNumbers -=1;
+                temporaryEmpCount +=1;
+            }
 
-        TemporaryEmp temporaryEmp1 = main.takeTemporaryEmployeeInput();
-        main.addTemporaryEmp(temporaryEmp1);
+        }
+        if(inputContractualEmployeeNumbers > 0){
+            while (inputContractualEmployeeNumbers >0){
+                ContractualEmp contractualEmp1 = main.takeContractualEmployeeInput();
+                main.addContractualEmp(contractualEmp1);
+                inputContractualEmployeeNumbers -=1;
+                contractualEmpCount +=1;
+            }
 
-        main.showPermanentEmployeeList();
-        main.showContractualEmployeeList();
-        main.showTemporaryEmployeeList();
-
+        }
+        if(permanentEmpCount > 0 ){
+            main.showPermanentEmployeeList();
+        }
+        if(temporaryEmpCount > 0 ){
+            main.showTemporaryEmployeeList();
+        }
+        if(contractualEmpCount > 0){
+            main.showContractualEmployeeList();
+        }
     }
 
 }
